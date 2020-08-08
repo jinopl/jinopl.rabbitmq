@@ -1,0 +1,31 @@
+- name: Add bintray erlang repo
+  yum_repository:
+    name: rabbitmq-erlang
+    description: rabbitmq-erlang
+    baseurl: "{{ erl_baseurl }}"
+    gpgcheck: true
+    gpgkey: "{{ erl_gpg }}"
+    repo_gpgcheck: no
+    enabled: yes
+
+- name: Add bintray rabbitmq repo
+  yum_repository:
+    name: bintray-rabbitmq-server
+    description: bintray-rabbitmq-server
+    baseurl: https://dl.bintray.com/rabbitmq/rpm/rabbitmq-server/v3.8.x/el/7/
+    gpgcheck: false
+    repo_gpgcheck: no
+    enabled: yes
+
+- name: install rabbitmq-server
+  yum:
+    name:
+      - erlang
+      - rabbitmq-server
+    state: present
+
+- name: start rabbitmq-server
+  service:
+    name: rabbitmq-server
+    state: started
+    enabled: yes

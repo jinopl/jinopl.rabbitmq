@@ -1,0 +1,15 @@
+---
+# tasks file for jinopl.rabbitmq
+- name: Debug Ansible OS
+  debug:
+    msg:
+      - Hello from {{ ansible_distribution }} {{ ansible_distribution_version }}
+      - Hostname is {{ ansible_hostname }}
+
+- name: Run when os is redhat family
+  include: rhel.yml
+  when: ansible_facts['os_family'] == "RedHat"
+
+- name: Run when os Debian family
+  include: debian.yml
+  when: ansible_facts['os_family'] == "Debian"

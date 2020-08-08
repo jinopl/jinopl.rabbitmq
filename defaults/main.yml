@@ -1,0 +1,18 @@
+---
+# defaults file for jinopl.rabbitmq
+
+rabbitmq_version: 3.8
+erl_version: 22
+
+#erlang-centos
+erl_baseurl_rhel: https://dl.bintray.com/rabbitmq-erlang/rpm/erlang/{{erl_version}}/el/{{ ansible_distribution_major_version }}
+erl_gpg_rhel: https://dl.bintray.com/rabbitmq/Keys/rabbitmq-release-signing-key.asc
+#rabbitmq-centos
+rabbitmq_baseurl_rhel: https://dl.bintray.com/rabbitmq/rpm/rabbitmq-server/v{{ rabbitmq_version }}.x/el/{{ ansible_distribution_major_version }}/
+
+
+
+#erlang-deb
+erl_baseurl_debian: deb https://dl.bintray.com/rabbitmq-erlang/debian {{ ansible_distribution_release }} erlang-{{ erl_version }}.x
+#rabbitmq-deb
+rabbitmq_baseurl_debian: https://dl.bintray.com/rabbitmq/rpm/rabbitmq-server/v{{ rabbitmq_version }}.x/el/{{ ansible_distribution_major_version }}/

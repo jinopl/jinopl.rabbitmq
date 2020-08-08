@@ -1,0 +1,14 @@
+galaxy_info:
+  author: Jino pl
+  description: DevOps
+  license: MIT
+  min_ansible_version: 2.9
+  platforms:
+  - name: CentOS
+    versions:
+    - 7
+  - name: Ubuntu
+    versions:
+    - 18.04
+  galaxy_tags:
+    - rabbitmq

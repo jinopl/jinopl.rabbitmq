@@ -1,0 +1,7 @@
+---
+- name: Converge
+  hosts: all
+  tasks:
+    - name: "Include jinopl.rabbitmq"
+      include_role:
+        name: "jinopl.rabbitmq"
